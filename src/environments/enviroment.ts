@@ -1,4 +1,5 @@
 export const environment = {
-  production: false,
-  api: 'http://localhost:4000',
+  production: true,
+  api: import.meta.env['API'],
+  uploads: import.meta.env['UPLOADS']
 };
