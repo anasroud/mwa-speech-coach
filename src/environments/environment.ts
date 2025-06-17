@@ -1,5 +1,5 @@
 export const environment = {
   production: true,
-  api: import.meta.env['API'],
-  uploads: import.meta.env['UPLOADS']
+  api: 'https://api.yourdomain.com',
+  uploads: 'https://voicecoach-uploads.s3.amazonaws.com'
 };
