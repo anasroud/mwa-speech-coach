@@ -4,7 +4,7 @@ import {
   HttpHandlerFn,
 } from '@angular/common/http';
 import { inject } from '@angular/core';
-import { environment } from '../../../environments/enviroment';
+import { environment } from '../../../environments/environment';
 import { UserService } from '../services/user';
 
 export const authTokenInterceptor: HttpInterceptorFn = (

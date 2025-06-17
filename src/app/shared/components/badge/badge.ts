@@ -1,5 +1,4 @@
 import { Component, input } from '@angular/core';
-import { LucideAngularModule } from 'lucide-angular';
 
 @Component({
   selector: 'app-badge',

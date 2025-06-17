@@ -6,7 +6,7 @@ import { Button } from '../../shared/components/button/button';
 import { LucideAngularModule } from 'lucide-angular';
 import { CommonModule } from '@angular/common';
 import { Badge } from '../../shared/components/badge/badge';
-import { environment } from '../../../environments/enviroment';
+import { environment } from '../../../environments/environment';
 import { InfoCard } from '../../shared/components/info-card/info-card';
 
 @Component({

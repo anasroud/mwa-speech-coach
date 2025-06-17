@@ -1,7 +1,7 @@
 import { Injectable, inject, signal } from '@angular/core';
-import { HttpClient, HttpHeaders } from '@angular/common/http';
-import { Observable, tap } from 'rxjs';
-import { environment } from '../../../environments/enviroment';
+import { HttpClient } from '@angular/common/http';
+import { tap } from 'rxjs';
+import { environment } from '../../../environments/environment';
 
 interface AuthResponse {
   success: true;

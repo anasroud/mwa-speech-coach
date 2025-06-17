@@ -9,7 +9,7 @@ import { RecordingService } from '../../shared/services/recording';
 
 import { Button } from '../../shared/components/button/button';
 import { InfoCard } from '../../shared/components/info-card/info-card';
-import { environment } from '../../../environments/enviroment';
+import { environment } from '../../../environments/environment';
 import { Recording, Stats } from '../../types/responses';
 @Component({
   selector: 'app-dashboard',
