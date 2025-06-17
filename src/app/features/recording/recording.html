@@ -1,0 +1,151 @@
+<div class="page-wrapper">
+  <div class="title-wrapper">
+    <a [routerLink]="['', 'dashboard']" class="navigator">
+      <lucide-angular
+        class="default-icon"
+        name="move-left"
+        [size]="24"
+        [strokeWidth]="2"
+      ></lucide-angular>
+      Back To DashBoard
+    </a>
+    <h1>Record Your Speech</h1>
+    <p>Practice with a custom prompt and get AI feedback</p>
+  </div>
+  @if(!canRecord() || prompt()) {
+  <div class="prompt-request-card">
+    @if(!prompt()) {
+    <div class="title-wrapper">
+      <h2>What would you like to speak about?</h2>
+      <p>Tell us your topic and we'll generate a prompt for you</p>
+    </div>
+    <div class="form-propmt-wrapper">
+      <form
+        class="form-propmt-wrapper"
+        (submit)="$event.preventDefault(); requestPrompt()"
+      >
+        <input
+          type="text"
+          [ngModel]="topic()"
+          (ngModelChange)="topic.set($event)"
+          name="topic"
+          class="input-text"
+          placeholder="e.g business leadership, software engineering..."
+        />
+
+        <app-button
+          content="Generate Prompt"
+          backgroundImg="var(--gradient-background)"
+          hoverBackgroundImg="var(--gradient-background-hover)"
+          textColor="white"
+          type="submit"
+          [disabled]="loading()"
+          height="48px"
+        />
+      </form>
+      <button
+        class="prompt-submit"
+        (click)="startImprov(); $event.stopPropagation()"
+        [disabled]="loading()"
+        type="button"
+      >
+        Improvisation (Recommended for professionals)
+      </button>
+    </div>
+
+    } @else {
+
+    <h2>Your Prompt</h2>
+    <p>{{ prompt()?.text }}</p>
+
+    }
+  </div>
+  } @if(canRecord()) {
+  <div class="rec-controls">
+    @if(recState() === 'recording' || recState() ==='idle') {
+    <app-button
+      [content]="recState() === 'recording' ? 'Stop Recording' : 'Start Recording'"
+      backgroundImg="var(--gradient-background)"
+      hoverBackgroundImg="var(--gradient-background-hover)"
+      textColor="white"
+      (click)="recState() === 'recording' ? stopRec() : startRec()"
+      height="48px"
+    >
+      <lucide-angular
+        class="default-icon"
+        [name]="recState() === 'recording' ? 'circle-stop' : 'play'"
+        [size]="24"
+        [strokeWidth]="2"
+      ></lucide-angular>
+    </app-button>
+    <div class="timer-wrapper">
+      {{ time() | number:'1.0-0' }} <span class="total-time">/ 120&nbsp;s</span>
+    </div>
+    } @if(recState() === 'done') {
+    <div class="action-btn-wrapper">
+      <button class="action-btn" [disabled]="loading()" (click)="submit()">
+        <lucide-angular
+          name="cloud-upload"
+          [style.color]="'green'"
+          [size]="16"
+          [strokeWidth]="2"
+        ></lucide-angular
+        >Submit Recording
+      </button>
+      <button
+        class="action-btn"
+        [disabled]="loading()"
+        (click)="recState.set('idle'); time.set(0)"
+      >
+        <lucide-angular
+          name="rotate-ccw"
+          [size]="16"
+          [style.color]="'red'"
+          [strokeWidth]="2"
+        ></lucide-angular>
+        <span> Record Again </span>
+      </button>
+    </div>
+    <div class="error" *ngIf="error()">{{ error() }}</div>
+
+    }
+  </div>
+  <div class="tips-wrapper">
+    <h3>Tips:</h3>
+    <ol class="tips-list">
+      <li>
+        <h4>Own the first 30 seconds.</h4>
+        <p>
+          Make deliberate eye contact, pause, and deliver a clear opening line.
+          Those first moments set audience perception and your own adrenaline
+          curve.
+        </p>
+      </li>
+      <li>
+        <h4>Chunk your content.</h4>
+        <p>
+          Group ideas into 3–5 logical “islands.” Audiences remember islands,
+          not oceans. Use signposts like “First… Next… Finally…” to guide them.
+        </p>
+      </li>
+      <li>
+        <h4>Master the pause.</h4>
+        <p>
+          Aim for a brief pause every 40–60 words. It lets ideas land, controls
+          pace (~130 WPM), and gives you a heartbeat to breathe and reset. Close
+          with a call-back.
+        </p>
+      </li>
+      <li>
+        <h4>
+          Finish by tying your last sentence to your opening hook or story.
+        </h4>
+        <p>
+          It signals completeness and leaves a memorable echo in listeners’
+          minds.
+        </p>
+      </li>
+    </ol>
+  </div>
+  }
+</div>

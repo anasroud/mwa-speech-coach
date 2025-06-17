@@ -1,0 +1,71 @@
+.header-wrapper {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  position: fixed;
+  top: 0;
+  width: calc(100% - 32px);
+  background: rgba(255, 255, 255, 0.8);
+  padding: 16px;
+  border-bottom: 1px solid var(--border);
+  flex-wrap: nowrap;
+}
+
+.title-wrapper {
+  display: flex;
+  gap: 12px;
+  font-weight: bold;
+  flex-wrap: nowrap;
+
+  .highlighted {
+    color: var(--highlighted-color);
+  }
+  &:active {
+    color: var(--highlighted-color);
+  }
+
+  .default-icon {
+    padding: 6px;
+    border-radius: 8px;
+    width: fit-content;
+    display: flex;
+    place-items: center;
+    background-image: var(--gradient-background);
+    color: white;
+  }
+}
+
+.title {
+  font-size: 24px;
+}
+
+.navigation-wrapper {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.btn {
+  border: 0;
+  background: transparent;
+  cursor: pointer;
+  padding: 8px;
+  font-size: 12px;
+  border-radius: 6px;
+
+  &.sign-in-btn {
+    border: 1px solid var(--border);
+    &:hover {
+      background-color: var(--btn-hover);
+    }
+  }
+
+  &.started-btn {
+    background-image: var(--gradient-background);
+    color: white;
+
+    &:hover {
+      background-image: var(--gradient-background-hover);
+    }
+  }
+}

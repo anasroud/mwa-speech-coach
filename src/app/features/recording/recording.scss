@@ -1,0 +1,122 @@
+.page-wrapper {
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  gap: 24px;
+  margin: 0 auto;
+  width: fit-content;
+}
+
+.navigator {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  cursor: pointer;
+  color: var(--highlighted-color);
+
+  .default-icon {
+    height: 24px;
+  }
+}
+
+.prompt-request-card {
+  background-color: white;
+  border-radius: 8px;
+  padding: 24px;
+  width: fit-content;
+  display: flex;
+  max-width: 768px;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.rec-controls {
+  display: flex;
+  gap: 16px;
+  align-items: center;
+}
+
+.timer-wrapper {
+  font-size: 24px;
+  color: var(--secondary-color);
+  .total-time {
+    font-size: 14px;
+  }
+}
+
+.form-propmt-wrapper {
+  display: flex;
+  gap: 8px;
+}
+
+.prompt-submit {
+  border: 0;
+  background: transparent;
+  cursor: pointer;
+  padding: 8px;
+  font-size: 12px;
+  border-radius: 6px;
+
+  border: 1px solid var(--border);
+  &:hover {
+    background-color: var(--btn-hover);
+  }
+}
+
+.input-text {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+  background: white;
+  min-width: 400px;
+}
+
+.action-btn-wrapper {
+  display: flex;
+  gap: 8px;
+}
+
+.action-btn {
+  padding: 12px;
+  background: white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  border-radius: 12px;
+  border: 1px solid var(--border);
+  cursor: pointer;
+
+  &:hover {
+    background-color: var(--btn-hover);
+  }
+}
+
+.tips-wrapper {
+  background-color: white;
+  border-radius: 8px;
+  max-width: 768px;
+  padding: 24px;
+  color: var(--secondary-color);
+
+  .tips-list {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+  }
+}
+
+.prompt-submit {
+  max-height: 48px;
+  max-width: 210px;
+}
+
+.error {
+  color: red;
+  font-size: 12px;
+}

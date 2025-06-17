@@ -1,0 +1,73 @@
+/* You can add global styles to this file, and also import other style files */
+
+@font-face {
+  font-family: Saria;
+  src: url("/fonts/sariaFont.ttf") format("truetype");
+}
+
+body {
+  margin: 0;
+  font-family: Saria, "Helvetica Neue", sans-serif;
+}
+
+h2,
+p,
+h1,
+h3,
+h4,
+h5,
+a {
+  margin: 0;
+  text-decoration: none;
+}
+
+a {
+  cursor: pointer;
+  color: unset;
+
+  &:active {
+    color: inherit;
+  }
+}
+
+button {
+  background-color: none;
+  border: none;
+  padding: none;
+  background: none;
+  cursor: pointer;
+}
+
+main {
+  background-image: linear-gradient(
+    to right bottom,
+    rgb(239, 246, 255),
+    rgb(238, 242, 255),
+    rgb(250, 245, 255)
+  );
+  min-height: 100vh;
+  height: 100%;
+  object-fit: cover;
+}
+:root {
+  --highlighted-color: rgb(79 70 229);
+  --gradient-background: linear-gradient(
+    to right,
+    rgb(99, 102, 241),
+    rgb(147, 51, 234)
+  );
+  --secondary-color: rgb(100, 116, 139);
+  --secondary-background: rgb(249, 250, 251);
+  --gradient-background-hover: linear-gradient(
+    to right,
+    rgb(79, 70, 229),
+    rgb(126, 34, 206)
+  );
+  --btn-hover: rgb(241, 245, 249);
+  --border: rgb(226, 232, 240);
+  --light-gradient: linear-gradient(
+    to right,
+    rgb(224, 231, 255),
+    rgb(243, 232, 255)
+  );
+}

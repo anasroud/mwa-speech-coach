@@ -1,0 +1,29 @@
+<nav class="header-wrapper">
+  <a [routerLink]="['', '/']" class="title-wrapper">
+    <lucide-angular
+      class="default-icon"
+      name="mic"
+      [size]="24"
+      [strokeWidth]="2"
+    ></lucide-angular>
+    <span class="title">VCoach <span class="highlighted">Pro</span></span>
+  </a>
+
+  <div class="navigation-wrapper">
+    @if(isLoggedIn) {
+    <a class="btn sign-in-btn" (click)="logout()">Logout</a>
+    @if(isAdmin) {
+    <a [routerLink]="['', 'admin']" class="btn started-btn"
+      >View Admin Dashboard</a
+    >
+    }
+    <a [routerLink]="['', 'dashboard']" class="btn started-btn"
+      >View Dashboard</a
+    >
+
+    } @else {
+    <a [routerLink]="['', 'login']" class="btn sign-in-btn">Sign In</a>
+
+    }
+  </div>
+</nav>

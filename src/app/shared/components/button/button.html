@@ -1,0 +1,11 @@
+<button
+  class="button-wrapper"
+  [style]="buttonStyles()"
+  (mouseenter)="hovering.set(true)"
+  (mouseleave)="hovering.set(false)"
+  [type]="type()"
+  [disabled]="disabled()"
+>
+  <ng-content></ng-content>
+  <span>{{ content() }}</span>
+</button>

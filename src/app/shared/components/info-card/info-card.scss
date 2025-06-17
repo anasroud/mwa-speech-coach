@@ -1,0 +1,28 @@
+.card-wrapper {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  background-color: white;
+  padding: 24px;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  border-radius: 8px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.12);
+  transition: box-shadow 0.25s ease;
+
+  &:hover {
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.25);
+  }
+
+  &:has(.side-icon) {
+    text-align: left;
+  }
+}
+
+.side-wrapper:has(.side-icon) {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+}

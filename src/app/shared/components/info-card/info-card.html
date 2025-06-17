@@ -1,0 +1,10 @@
+<div class="card-wrapper">
+  <ng-content select=".default-icon"></ng-content>
+  <div class="side-wrapper">
+    <div>
+      <h3>{{title()}}</h3>
+      <p>{{description()}}</p>
+    </div>
+    <ng-content select=".side-icon"></ng-content>
+  </div>
+</div>

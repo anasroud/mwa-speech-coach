@@ -1,0 +1,12 @@
+.button-wrapper {
+  padding: 16px 32px;
+  background: unset;
+  border: unset;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  border-radius: 12px;
+  border: 1px solid var(--border);
+  cursor: pointer;
+}

@@ -1,0 +1,148 @@
+<div class="page-wrapper">
+  <div class="navigator-wrapper">
+    <app-button
+      content="Start Recording"
+      (click)="navigateDashboard()"
+      backgroundColor="white"
+      hoverBackgroundImg="var(--btn-hover)"
+      textColor="black"
+      class="navigator-btn"
+      height="52px"
+    >
+      <lucide-angular
+        name="move-left"
+        class="btn-icon"
+        [size]="14"
+        [strokeWidth]="2"
+      ></lucide-angular>
+    </app-button>
+  </div>
+
+  <div class="title-block card">
+    <div class="title-wrapper">
+      <div class="upper-section">
+        <h1 class="capitalize">
+          {{reportInfo().title ? reportInfo().title :
+          reportInfo().promptText?.slice(0,100)}}
+        </h1>
+        <div class="secondary title-info">
+          <span class="title-section">
+            <lucide-angular
+              name="calendar"
+              class="btn-icon"
+              [size]="14"
+              [strokeWidth]="2"
+            ></lucide-angular>
+            {{reportInfo().createdAt | date}}
+          </span>
+          <span>
+            <app-badge
+              [content]="reportInfo().metrics?.sentiment || ''"
+              borderColor="var(--border)"
+              backgroundColor="white"
+              textColor="var(--secondary-color)"
+              padding="4px 10px"
+              class="capitalize"
+            ></app-badge>
+          </span>
+        </div>
+      </div>
+      <app-button
+        [content]="playingId() === reportInfo()._id ? 'Play Recording' : 'Stop Recording'"
+        (click)="play(reportInfo()._id, reportInfo().audioUrl)"
+        backgroundColor="white"
+        hoverBackgroundImg="var(--btn-hover)"
+        textColor="black"
+        class="navigator-btn"
+        height="48px"
+      >
+        <lucide-angular
+          class="btn-icon"
+          [name]="playingId() === reportInfo()._id ? 'pause' : 'play'"
+          [size]="14"
+          [strokeWidth]="2"
+        >
+        </lucide-angular>
+      </app-button>
+    </div>
+    <app-badge
+      [content]="'Overall Score: '+((reportInfo().metrics?.score | number: '1.1-1') || '0') + ' / 100'"
+      borderColor="none"
+      backgroundColor="rgb(219, 234, 254)"
+      textColor="rgb(37, 99, 235)"
+      padding="4px 10px"
+      class="capitalize bold"
+      mainFontSize="24px"
+    ></app-badge>
+  </div>
+
+  <div class="info-cards-wrapper">
+    @for(cardInfo of infoCards(); track cardInfo.title) {
+    <app-info-card
+      [title]="cardInfo.title"
+      [description]="cardInfo.description"
+    >
+      <lucide-angular
+        class="default-icon"
+        [name]="cardInfo.icon"
+        [size]="24"
+        [strokeWidth]="2"
+        [style.color]="cardInfo.iconTheme"
+        [style.backgroundColor]="cardInfo.mainTheme"
+      ></lucide-angular
+    ></app-info-card>
+    }
+  </div>
+
+  <div class="transcript-wrapper card">
+    <div>
+      <lucide-angular
+        class="default-icon"
+        name="volume-2"
+        [size]="24"
+        [strokeWidth]="2"
+        [style.color]="'var(--highlighted-color)'"
+      ></lucide-angular>
+    </div>
+    <div class="content">
+      <h2>Transcript</h2>
+      <p class="secondary">{{reportInfo().transcript}}</p>
+    </div>
+  </div>
+
+  <div class="insights-wrapper card">
+    <div class="title">
+      <lucide-angular
+        class="default-icon"
+        name="circle-check-big"
+        [size]="24"
+        [strokeWidth]="2"
+        [style.color]="'rgb(22 163 74)'"
+      ></lucide-angular>
+      <h2>AI insights</h2>
+    </div>
+    @for(advice of reportInfo().advice; track advice.text) {
+    <div class="advice advice-{{advice.type}}">
+      <div class="icon-advice-{{advice.type}}">
+        <lucide-angular
+          class="icon"
+          name="circle-check-big"
+          [size]="18"
+          [strokeWidth]="2"
+        ></lucide-angular>
+      </div>
+
+      <p>{{advice.text}}</p>
+    </div>
+    }
+  </div>
+
+  @if(reportInfo().promptText) {
+  <div class="propmt-wrapper card">
+    <div class="title">
+      <h2>Prompt</h2>
+    </div>
+    <p class="secondary">{{reportInfo().promptText}}</p>
+  </div>
+  }
+</div>

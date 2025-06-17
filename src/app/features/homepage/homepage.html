@@ -1,0 +1,61 @@
+<div class="page-wrapper">
+  <div class="title-wrapper">
+    <app-badge
+      content="AI-Powered Speech Analysis"
+      textColor="var(--highlighted-color)"
+      backgroundColor="var(--light-gradient)"
+      borderColor="rgb(199, 210, 254)"
+      class="badge"
+    >
+      <lucide-angular
+        name="sparkle"
+        [size]="16"
+        [strokeWidth]="2"
+      ></lucide-angular>
+    </app-badge>
+    <h1 class="title">Transform Your Public Speaking with AI</h1>
+    <p class="title-breif">
+      Record your speech and get instant, personalized feedback on pacing,
+      clarity, tone, and confidence. Perfect your presentation skills with our
+      advanced AI coaching.
+    </p>
+    <div class="buttons-wrapper">
+      <app-button
+        content="Start Recording"
+        (click)="navigateRecord()"
+        backgroundImg="var(--gradient-background)"
+        hoverBackgroundImg="var(--gradient-background-hover)"
+        textColor="white"
+        height="48px"
+      >
+        <lucide-angular
+          name="mic"
+          [size]="16"
+          [strokeWidth]="2"
+        ></lucide-angular>
+      </app-button>
+    </div>
+  </div>
+  <app-section-wrapper
+    title="Powerful Features"
+    subTitle="Our AI analyzes every aspect of your speech to help you become a more confident and effective speaker."
+  >
+    <div class="info-cards-wrapper">
+      @for(cardInfo of infoCards; track cardInfo.title) {
+      <app-info-card
+        [title]="cardInfo.title"
+        [description]="cardInfo.description"
+      >
+        <lucide-angular
+          class="default-icon"
+          [name]="cardInfo.icon"
+          [size]="24"
+          [strokeWidth]="2"
+          [style.color]="cardInfo.iconTheme"
+          [style.backgroundColor]="cardInfo.mainTheme"
+        ></lucide-angular
+      ></app-info-card>
+      }
+    </div>
+  </app-section-wrapper>
+</div>

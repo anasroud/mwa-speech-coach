@@ -1,0 +1,25 @@
+<div class="input-wrapper" [class.invalid]="shouldShowError()">
+  <lucide-icon [name]="icon" class="icon" [size]="16" />
+
+  <input
+    [type]="inputType"
+    [formControl]="control"
+    [placeholder]="placeholder"
+  />
+
+  <lucide-icon
+    *ngIf="type === 'password'"
+    [name]="showPassword() ? 'eye-off' : 'eye'"
+    class="toggle-icon"
+    (click)="togglePassword()"
+    [size]="16"
+  />
+</div>
+
+<div class="error" *ngIf="shouldShowError()">
+  <span *ngIf="control.errors?.['required']">This field is required</span>
+  <span *ngIf="control.errors?.['email']">Please enter a valid email</span>
+  <span *ngIf="control.errors?.['minlength']"
+    >Minimum 6 characters required</span
+  >
+</div>

@@ -1,0 +1,94 @@
+<div class="page-wrapper">
+  <h1>{{username}}'s Dashboard</h1>
+  <p>Track your progress and continue improving your speaking skills.</p>
+  <app-button
+    content="New Recording"
+    backgroundImg="var(--gradient-background)"
+    hoverBackgroundImg="var(--gradient-background-hover)"
+    textColor="white"
+    height="48px"
+    (click)="navigateRecord()"
+  >
+    <lucide-angular name="mic" [size]="16" [strokeWidth]="2"></lucide-angular>
+  </app-button>
+
+  <div class="info-cards-wrapper">
+    @for(cardInfo of infoCards(); track cardInfo.title) {
+    <app-info-card
+      [title]="cardInfo.title"
+      [description]="cardInfo.description"
+      (click)="navigateRecord()"
+    >
+      <lucide-angular
+        class="side-icon"
+        [name]="cardInfo.icon"
+        [size]="24"
+        [strokeWidth]="2"
+        [style.color]="cardInfo.iconTheme"
+        [style.backgroundColor]="cardInfo.mainTheme"
+      ></lucide-angular
+    ></app-info-card>
+    }
+  </div>
+  <div class="recent-recordings">
+    <div class="card-title">
+      <div class="title-wrapper">
+        <lucide-angular
+          class="title-icon"
+          name="chart-column"
+          [size]="24"
+          [strokeWidth]="2"
+        ></lucide-angular>
+        <h2>Recordings</h2>
+      </div>
+      <p class="secondary">View and manage your speech analysis sessions</p>
+    </div>
+
+    <div class="recordings-wrapper">
+      @for(rec of recordings(); track rec._id) {
+      <div class="recording-card">
+        <div class="recording-title">
+          <button (click)="play(rec)">
+            <lucide-angular
+              class="play-icon"
+              [name]="playingId() === rec._id ? 'pause' : 'play'"
+              [size]="20"
+              [strokeWidth]="2"
+            >
+            </lucide-angular>
+          </button>
+          <div>
+            <div class="bold capitalize">{{ rec.title | slice:0:50 }}</div>
+            <div class="secondary">
+              {{ rec.createdAt | date:'mediumDate' }} • Score: {{
+              rec.metrics.score | number: '1.1-1' }}
+            </div>
+          </div>
+        </div>
+
+        <div class="action-btn-wrapper">
+          <button class="action-btn" (click)="view(rec._id)">
+            View Report
+          </button>
+          <button class="action-btn" (click)="remove(rec._id)">
+            <lucide-angular
+              name="trash"
+              [size]="16"
+              [strokeWidth]="2"
+            ></lucide-angular>
+          </button>
+        </div>
+      </div>
+      }
+    </div>
+
+    <mat-paginator
+      [length]="total()"
+      [pageSize]="pageSize"
+      (page)="pageChange($event)"
+      aria-label="Select page"
+      class="paginator-container"
+    >
+    </mat-paginator>
+  </div>
+</div>

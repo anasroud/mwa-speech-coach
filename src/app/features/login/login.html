@@ -1,0 +1,60 @@
+<div class="page-wrapper">
+  <div class="navigate-wrapper">
+    <a [routerLink]="['', '/']" class="navigator">
+      <lucide-angular
+        class="default-icon"
+        name="move-left"
+        [size]="24"
+        [strokeWidth]="2"
+      ></lucide-angular>
+      Back To Home
+    </a>
+  </div>
+
+  <div class="form-wrapper">
+    <div class="title-wrapper">
+      <h1 class="title">Welcome Back</h1>
+      <p class="sub-title">Sign in to your VoiceCoach Pro account</p>
+    </div>
+
+    <form class="form-login" [formGroup]="form" (ngSubmit)="onSubmit()">
+      <app-input-with-icon
+        [control]="email"
+        type="email"
+        icon="mail"
+        placeholder="Email"
+        [submitted]="submitted()"
+      />
+
+      <app-input-with-icon
+        [control]="password"
+        type="password"
+        icon="lock"
+        placeholder="Password"
+        [submitted]="submitted()"
+      />
+
+      @if(loginError()) {
+      <div class="error">{{ loginError() }}</div>
+      }
+
+      <app-button
+        content="Login"
+        backgroundImg="var(--gradient-background)"
+        hoverBackgroundImg="var(--gradient-background-hover)"
+        textColor="white"
+        height="48px"
+        class="button-submit"
+        width="100%"
+        type="submit"
+      ></app-button>
+    </form>
+
+    <div class="navigation-other">
+      <p>
+        Don't have an account?
+        <a [routerLink]="['', 'signup']" class="navigate-link">Sign up</a>
+      </p>
+    </div>
+  </div>
+</div>

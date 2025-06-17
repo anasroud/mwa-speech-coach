@@ -1,0 +1,76 @@
+<div class="page-wrapper">
+  <div class="navigate-wrapper">
+    <a [routerLink]="['', '/']" class="navigator">
+      <lucide-angular
+        class="default-icon"
+        name="move-left"
+        [size]="24"
+        [strokeWidth]="2"
+      ></lucide-angular>
+      Back To Home
+    </a>
+  </div>
+
+  <div class="form-wrapper">
+    <div class="title-wrapper">
+      <h1 class="title">Welcome Back</h1>
+      <p class="sub-title">Sign in to your VoiceCoach Pro account</p>
+    </div>
+
+    <form class="form-login" [formGroup]="form" (ngSubmit)="onSubmit()">
+      <app-input-with-icon
+        [control]="name"
+        type="text"
+        icon="user"
+        placeholder="Your Name"
+        [submitted]="submitted()"
+      />
+
+      <app-input-with-icon
+        [control]="email"
+        type="email"
+        icon="mail"
+        placeholder="Your Email"
+        [submitted]="submitted()"
+      />
+
+      <app-input-with-icon
+        [control]="password"
+        type="password"
+        icon="lock"
+        placeholder="Password"
+        [submitted]="submitted()"
+      />
+
+      <app-input-with-icon
+        [control]="confirmPassword"
+        type="password"
+        icon="lock"
+        placeholder="Confirm Password"
+        [submitted]="submitted()"
+      />
+
+      @if(submitted() && !passwordsMatch()) {
+      <div class="error">Passwords do not match</div>
+      }
+
+      <app-button
+        content="Sign up"
+        backgroundImg="var(--gradient-background)"
+        hoverBackgroundImg="var(--gradient-background-hover)"
+        textColor="white"
+        height="48px"
+        class="button-submit"
+        width="100%"
+        type="submit"
+      ></app-button>
+    </form>
+
+    <div class="navigation-other">
+      <p>
+        Don't have an account?
+        <a [routerLink]="['', 'login']" class="navigate-link">Sign in</a>
+      </p>
+    </div>
+  </div>
+</div>

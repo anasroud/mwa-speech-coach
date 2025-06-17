@@ -1,0 +1,13 @@
+<div
+  class="badge-wrapper"
+  [style.color]="textColor()"
+  [style.backgroundImage]="backgroundColor()"
+  [style.backgroundColor]="backgroundColor()"
+  [style.padding]="padding()"
+  style.border="1px solid {{borderColor()}}"
+  [style.fontSize]="mainFontSize()"
+>
+  <ng-content></ng-content>
+  <p>{{content()}}</p>
+  <ng-content select=".side"></ng-content>
+</div>
