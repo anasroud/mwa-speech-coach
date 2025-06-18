@@ -51,7 +51,7 @@
           <button (click)="play(rec.audioUrl, rec._id)">
             <lucide-angular
               class="play-icon"
-              [name]="playingId() === rec._id ? 'pause' : 'play'"
+              [name]="current() === rec._id ? 'pause' : 'play'"
               [size]="20"
               [strokeWidth]="2"
             >
