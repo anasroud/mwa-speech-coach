@@ -85,7 +85,7 @@ export class Report {
       this.current.set(null);
       return;
     }
-    this.audio.src = url;
+    this.audio.src = `${environment.uploads}${url}`;
     this.audio.play().catch(() => {});
     this.current.set(id);
   }

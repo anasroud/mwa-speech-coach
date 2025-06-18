@@ -28,7 +28,7 @@ export class RecordingApi {
 
   getUploadUrl() {
     return this.http.post<{ success: true; data: { url: string; key: string } }>(
-      `${this.api}/upload/upload-url`,
+      `${this.api}/upload`,
       {}
     );
   }
