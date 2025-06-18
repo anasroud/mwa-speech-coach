@@ -49,7 +49,7 @@
       </div>
       <app-button
         [content]="playingId() === reportInfo()._id ? 'Play Recording' : 'Stop Recording'"
-        (click)="play(reportInfo()._id, reportInfo().audioUrl)"
+        (click)="reportInfo().audioUrl! && reportInfo()._id && play(reportInfo().audioUrl!, reportInfo()._id!)"
         backgroundColor="white"
         hoverBackgroundImg="var(--btn-hover)"
         textColor="black"

@@ -76,18 +76,21 @@ export class Report {
     this.router.navigate(['/dashboard']);
   }
 
-  play(id?: string, url?: string) {
-    if (!id || !url) return;
-    if (this.playingId() === id) {
-      this.currentAudio?.pause();
-      this.playingId.set(null);
+  audio = new Audio();
+  current = signal<string | null>(null);
+
+  play(url: string, id: string) {
+    if (this.current() === id) {
+      this.audio.pause();
+      this.current.set(null);
       return;
     }
+    this.audio.src = url;
+    this.audio.play().catch(() => {});
+    this.current.set(id);
+  }
 
-    this.currentAudio?.pause();
-    this.currentAudio = new Audio(environment.uploads + url);
-    this.currentAudio.crossOrigin = 'anonymous';
-    this.currentAudio.play();
-    this.playingId.set(id);
+  isPlaying(id: string) {
+    return this.current() === id;
   }
 }

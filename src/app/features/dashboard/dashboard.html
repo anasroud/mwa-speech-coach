@@ -48,7 +48,7 @@
       @for(rec of recordings(); track rec._id) {
       <div class="recording-card">
         <div class="recording-title">
-          <button (click)="play(rec)">
+          <button (click)="play(rec.audioUrl, rec._id)">
             <lucide-angular
               class="play-icon"
               [name]="playingId() === rec._id ? 'pause' : 'play'"
