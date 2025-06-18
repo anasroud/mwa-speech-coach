@@ -26,6 +26,19 @@ export class RecordingApi {
     });
   }
 
+  getUploadUrl() {
+    return this.http.post<{ success: true; data: { url: string; key: string } }>(
+      `${this.api}/upload/upload-url`,
+      {}
+    );
+  }
+
+  submitRecording(body: { key: string; promptId: string }) {
+    return this.http.post<{ success: true; data: { reportId: string } }>(
+      `${this.api}/recording`,
+      body
+    );
+  }
   upload(audio: Blob, promptId: string) {
     const fd = new FormData();
     fd.append('audio', audio, 'record.m4a');

@@ -100,19 +100,23 @@ export class Dashboard {
   view(id: string) {
     this.router.navigate(['/reports', id]);
   }
-  play(rec: Recording) {
-    if (this.playingId() === rec._id) {
-      this.currentAudio?.pause();
-      this.playingId.set(null);
-      return;
-    }
+audio = new Audio();
+current = signal<string | null>(null);
 
-    this.currentAudio?.pause();
-    this.currentAudio = new Audio(environment.api + rec.audioUrl);
-    this.currentAudio.crossOrigin = 'anonymous';
-    this.currentAudio.play();
-    this.playingId.set(rec._id);
+play(url: string, id: string) {
+  if (this.current() === id) {
+    this.audio.pause();
+    this.current.set(null);
+    return;
   }
+  this.audio.src = url;
+  this.audio.play().catch(() => {});
+  this.current.set(id);
+}
+
+isPlaying(id: string) {
+  return this.current() === id;
+}
 
   get username() {
     return this.user.user()?.name ?? 'User';

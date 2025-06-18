@@ -85,7 +85,7 @@ export class Report {
     }
 
     this.currentAudio?.pause();
-    this.currentAudio = new Audio(environment.api + url);
+    this.currentAudio = new Audio(environment.uploads + url);
     this.currentAudio.crossOrigin = 'anonymous';
     this.currentAudio.play();
     this.playingId.set(id);
