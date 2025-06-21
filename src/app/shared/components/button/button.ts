@@ -7,7 +7,7 @@ import { Component, input, computed, signal } from '@angular/core';
   styleUrls: ['./button.scss'],
 })
 export class Button {
-  content = input<string>('');
+  content = input<string>();
   leftIcon = input<string>();
   rightIcon = input<string>();
   backgroundColor = input<string>('white');

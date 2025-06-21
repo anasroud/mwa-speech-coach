@@ -19,7 +19,6 @@
       <h2>What would you like to speak about?</h2>
       <p>Tell us your topic and we'll generate a prompt for you</p>
     </div>
-    <div class="form-propmt-wrapper">
       <form
         class="form-propmt-wrapper"
         (submit)="$event.preventDefault(); requestPrompt()"
@@ -32,26 +31,28 @@
           class="input-text"
           placeholder="e.g business leadership, software engineering..."
         />
+        <div class="control-propmt-wrapper">
 
-        <app-button
-          content="Generate Prompt"
-          backgroundImg="var(--gradient-background)"
-          hoverBackgroundImg="var(--gradient-background-hover)"
-          textColor="white"
-          type="submit"
+          <app-button
+            content="Generate Prompt"
+            backgroundImg="var(--gradient-background)"
+            hoverBackgroundImg="var(--gradient-background-hover)"
+            textColor="white"
+            type="submit"
+            [disabled]="loading()"
+            class="fill-space"
+          />
+        <button
+          class="prompt-submit"
+          (click)="startImprov(); $event.stopPropagation()"
           [disabled]="loading()"
-          height="48px"
-        />
+          type="button"
+        >
+          Improvisation (Recommended for professionals)
+        </button>
+      </div>
+
       </form>
-      <button
-        class="prompt-submit"
-        (click)="startImprov(); $event.stopPropagation()"
-        [disabled]="loading()"
-        type="button"
-      >
-        Improvisation (Recommended for professionals)
-      </button>
-    </div>
 
     } @else {
 

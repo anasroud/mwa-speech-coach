@@ -1,7 +1,7 @@
 <div class="page-wrapper">
   <div class="navigator-wrapper">
     <app-button
-      content="Start Recording"
+      content="Back To Dashboard"
       (click)="navigateDashboard()"
       backgroundColor="white"
       hoverBackgroundImg="var(--btn-hover)"
@@ -48,7 +48,6 @@
         </div>
       </div>
       <app-button
-        [content]="playingId() === reportInfo()._id ? 'Play Recording' : 'Stop Recording'"
         (click)="reportInfo().audioUrl! && reportInfo()._id && play(reportInfo().audioUrl!, reportInfo()._id!)"
         backgroundColor="white"
         hoverBackgroundImg="var(--btn-hover)"

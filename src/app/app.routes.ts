@@ -8,12 +8,12 @@ export const routes: Routes = [
     path: '',
     loadComponent: () =>
       import('./features/homepage/homepage').then((m) => m.Homepage),
-    title: 'Voice Coach',
+    title: 'PUPAI',
   },
   {
     path: 'login',
     loadComponent: () => import('./features/login/login').then((m) => m.Login),
-    title: 'Voice Coach: Login',
+    title: 'PUPAI: Login',
     canActivate: [authRedirectGuard],
   },
   {
@@ -21,28 +21,28 @@ export const routes: Routes = [
     canActivate: [authRedirectGuard],
     loadComponent: () =>
       import('./features/signup/signup').then((m) => m.Signup),
-    title: 'Voice Coach: Sign up',
+    title: 'PUPAI: Sign up',
   },
   {
     path: 'dashboard',
     canActivate: [authGuard],
     loadComponent: () =>
       import('./features/dashboard/dashboard').then((m) => m.Dashboard),
-    title: 'Voice Coach: Dashboard',
+    title: 'PUPAI: Dashboard',
   },
   {
     path: 'recording',
     canActivate: [authGuard],
     loadComponent: () =>
       import('./features/recording/recording').then((m) => m.Recording),
-    title: 'Voice Coach: Record',
+    title: 'PUPAI: Record',
   },
   {
     path: 'reports/:id',
     canActivate: [authGuard],
     loadComponent: () =>
       import('./features/report/report').then((m) => m.Report),
-    title: 'Voice Coach: Report',
+    title: 'PUPAI: Report',
   },
   {
     path: 'admin',
@@ -51,7 +51,7 @@ export const routes: Routes = [
       import('./features/admin-dashboard/admin-dashboard').then(
         (m) => m.AdminDashboard
       ),
-    title: 'Voice Coach: Admin',
+    title: 'PUPAI: Admin',
   },
   { path: '**', redirectTo: '' },
 ];
