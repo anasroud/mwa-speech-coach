@@ -54,7 +54,7 @@ export class Report {
       {
         icon: 'circle-alert',
         title:
-          (s ? String(((s.metrics?.fillerRate || 0) * 100).toFixed(1)) : '0') +
+          (s ? String(((s.metrics?.fillerRate || 0)).toFixed(1)) : '0') +
           '%',
         description: 'Filler Rate',
         mainTheme: 'rgb(243, 244, 246)',
