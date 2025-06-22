@@ -10,6 +10,7 @@ import { AuthService } from '../../shared/services/auth';
 import { Button } from '../../shared/components/button/button';
 import { InputWithIcon } from '../../shared/components/input-with-icon/input-with-icon';
 import { LucideAngularModule } from 'lucide-angular';
+import { toSignal } from '@angular/core/rxjs-interop';
 
 @Component({
   selector: 'app-signup',
@@ -60,9 +61,17 @@ export class Signup {
     return this.form.controls.confirmPassword;
   }
 
-  passwordsMatch = computed(
-    () => this.password.value === this.confirmPassword.value
-  );
+  readonly passwordSignal = toSignal(this.form.controls.password.valueChanges, {
+    initialValue: this.form.controls.password.value,
+  });
+
+  readonly confirmPasswordSignal = toSignal(this.form.controls.confirmPassword.valueChanges, {
+    initialValue: this.form.controls.confirmPassword.value,
+  });
+  
+
+  readonly passwordsMatch = computed(() => this.passwordSignal() === this.confirmPasswordSignal());
+
 
   onSubmit(): void {
     this.submitted.set(true);
