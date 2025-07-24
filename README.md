@@ -1,59 +1,87 @@
-# VoicecoachFe
+# MWA Speech Coach
 
-This project was generated using [Angular CLI](https://github.com/angular/angular-cli) version 20.0.1.
+MWA Speech Coach is an interactive web application designed to help users improve their public speaking and presentation skills. By leveraging modern web technologies, it provides real-time feedback, progress tracking, and a user-friendly experience for both learners and administrators.
 
-## Development server
+## What is MWA Speech Coach?
 
-To start a local development server, run:
+**MWA Speech Coach** enables users to record their speeches, receive automated feedback, and track their improvement over time. The platform is ideal for students, professionals, and anyone looking to enhance their communication abilities. Administrators can manage users and monitor overall progress through a dedicated dashboard.
+
+---
+
+## Key Features
+
+- **User Authentication:** Secure sign-up and login for personalized experiences.
+- **Speech Recording:** Record and playback speeches directly in the browser.
+- **Automated Feedback:** Get instant analysis and constructive feedback on your recordings (e.g., pace, clarity, filler words).
+- **Progress Dashboard:** Visualize your improvement with detailed reports and analytics.
+- **Admin Dashboard:** Manage users and oversee platform activity.
+- **Modern, Responsive UI:** Clean design for seamless use on desktop and mobile devices.
+
+---
+
+## How It Works
+
+1. **Sign Up / Log In:** Create an account or log in to access your dashboard.
+2. **Record a Speech:** Use the built-in recorder to capture your presentation.
+3. **Receive Feedback:** Instantly get actionable insights to help you improve.
+4. **Track Progress:** View your history and reports to monitor your growth.
+5. **Admin Tools:** (For admins) Manage users and review platform statistics.
+
+---
+
+## Quick Start
+
+### Prerequisites
+- [Node.js](https://nodejs.org/) (v18+ recommended)
+- [Angular CLI](https://angular.dev/tools/cli) (v20+ recommended)
+- [pnpm](https://pnpm.io/) or npm
+
+### Installation
+
+```bash
+git clone https://github.com/yourusername/mwa-speech-coach.git
+cd mwa-speech-coach
+pnpm install # or npm install
+```
+
+### Running the App
 
 ```bash
 ng serve
 ```
 
-Once the server is running, open your browser and navigate to `http://localhost:4200/`. The application will automatically reload whenever you modify any of the source files.
+Open [http://localhost:4200](http://localhost:4200) in your browser.
 
-## Code scaffolding
+---
 
-Angular CLI includes powerful code scaffolding tools. To generate a new component, run:
+## Project Structure (Overview)
 
-```bash
-ng generate component component-name
+```
+src/
+  app/
+    features/         # Main app features (dashboard, login, recording, etc.)
+    shared/           # Shared components, services, guards, interceptors
+    types/            # TypeScript interfaces and types
+  environments/       # Environment configs
+  public/             # Static assets (fonts, images)
 ```
 
-For a complete list of available schematics (such as `components`, `directives`, or `pipes`), run:
+---
 
-```bash
-ng generate --help
-```
+## Why Use MWA Speech Coach?
 
-## Building
+- **For Learners:** Practice and improve your speaking skills with instant, actionable feedback.
+- **For Educators/Organizations:** Track user progress and manage learning at scale.
+- **For Recruiters:** Demonstrates modern Angular development, clean architecture, and a focus on user experience and accessibility.
 
-To build the project run:
+---
 
-```bash
-ng build
-```
+## Contributing
 
-This will compile your project and store the build artifacts in the `dist/` directory. By default, the production build optimizes your application for performance and speed.
+Contributions are welcome! Please fork the repository and submit a pull request.
 
-## Running unit tests
+---
 
-To execute unit tests with the [Karma](https://karma-runner.github.io) test runner, use the following command:
+## License
 
-```bash
-ng test
-```
-
-## Running end-to-end tests
-
-For end-to-end (e2e) testing, run:
-
-```bash
-ng e2e
-```
-
-Angular CLI does not come with an end-to-end testing framework by default. You can choose one that suits your needs.
-
-## Additional Resources
-
-For more information on using the Angular CLI, including detailed command references, visit the [Angular CLI Overview and Command Reference](https://angular.dev/tools/cli) page.
+This project is licensed under the MIT License.
